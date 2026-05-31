@@ -3,6 +3,8 @@ import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import cookieParser from "cookie-parser";
+import authRoutes from "./routes/auth.routes.js";
+
 
 const app = express();
 
@@ -28,5 +30,7 @@ app.use(cookieParser());
 app.get("/", (req, res) => {
   res.json({ message: "ShopSphere API Running 🚀" });
 });
+
+app.use("/api/auth", authRoutes);
 
 export default app;
